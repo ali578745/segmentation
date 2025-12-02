@@ -58,46 +58,30 @@ Video path
 
 "webcam"
 
-**2. --closest (optional):**
+**2. --Arguments**
 
-If used, only the closest person/object is segmented.**
+**You can use any of the following arguments with source.**
 
-**3.Run on an Image:**
+1.`--masks` will return masks only.
+
+2.`--background` will return objects with no background.
+
+3. `--bg_image` will return the object with provided image as background 
+
+Note: need to use `--background` and `--bg_image`
+
+4.`--show` is used to preview video other video will only save
+
+5.`--closest` will only show the largest segmented object
+  
+**3.Run Examples:**
 ```python 
 python main.py --source umair2.jpeg
 
-```
-**With closest-only segmentation:** 
-```python 
-python main.py --source umair2.jpeg --closest
-```
-**4.Run on a Video:**
-```python
-python main.py --source myvideo.mp4
-```
-**With closest-only segmentation:**
-```python
-python main.py --source myvideo.mp4 --closest
-```
+python main.py --source umair2.jpeg --masks --background  --bg_image bg.jpg
 
-**5.Run on Webcam:**
-```python
-python main.py --source webcam
-```
-**With closest-only segmentation:**
-```python
-python main.py --source webcam --closest
-```
-# 5. Output Files:
-```python
-masks_video.mp4
-```
-```python
-masks_on_original.mp4
-```
-```python
-masks_output.jpg
-```
-```python
-cutout_transparent.png
-```
+python main.py --source umair2.jpeg --masks --bg_image bg.jpg
+
+python main.py --source test.mp4 --masks --show
+
+python main.py --source test.mp4 --masks
